@@ -21,6 +21,14 @@
 - Linting with [Stylua](https://github.com/JohnnyMorganz/StyLua)
 - Changelog with [git-chglog](https://github.com/git-chglog/git-chglog)
 
+## 📋 Installation
+
+> **Note**:
+> This section is only required if you wish to setup the same linter and changelog generator as I do.
+
+- [Install Stylua linter](https://github.com/JohnnyMorganz/StyLua#installation)
+- [Install git-chglog generator](https://github.com/git-chglog/git-chglog)
+
 ## ☄ Usage
 
 The following checklist is all your need to do to start writing your first plugin.
@@ -29,10 +37,10 @@ The following checklist is all your need to do to start writing your first plugi
 
 ```sh
 # via HTTPs
-https://github.com/shortcuts/neovim-plugin-boilerplate.git ~/my-awesome-plugin.nvim
+git clone https://github.com/shortcuts/neovim-plugin-boilerplate.git ~/my-awesome-plugin.nvim
 
 # via SSH
-git@github.com:shortcuts/neovim-plugin-boilerplate.git ~/my-awesome-plugin.nvim
+git clone git@github.com:shortcuts/neovim-plugin-boilerplate.git ~/my-awesome-plugin.nvim
 
 ```
 
@@ -41,13 +49,25 @@ git@github.com:shortcuts/neovim-plugin-boilerplate.git ~/my-awesome-plugin.nvim
 > **Note**:
 > The placeholder names are purposely written with different casing. Make sure to keep it.
 
-#### Go to your plugin folder and open Neovim
+#### File names
+
+```sh
+mv plugin/YOUR_PLUGIN_NAME.lua plugin/my-awesome-plugin.lua
+mv README_TEMPLATE.md README.md 
+
+```
+
+#### References
+
+##### Go to the plugin directory and open Neovim:
 
 ```sh
 cd ~/my-awesome-plugin.nvim && nvim .
 ```
 
-#### Search and Replace
+##### Search and replace placeholder occurrences:
+
+> For Lua and README.md files
 
 ```vim
 :vimgrep /YourPluginName/ **/*
@@ -57,12 +77,20 @@ cd ~/my-awesome-plugin.nvim && nvim .
 :cfdo %s/your-plugin-name/my-awesome-plugin/g | update
 ```
 
+> For GitHub action files
+
+```vim
+:vimgrep /your-plugin-name/ .github/**
+:cfdo %s/your-plugin-name/my-awesome-plugin/g | update
+```
+
 ### 3 - Code
 
 You can now start writing your plugin, make sure the following commands work:
 1. `make deps` to install docs/tests dependencies
-2. `make documentation` to generate the documentation
-3. `make tests` to run the tests
+2. `make lint` to format the code
+3. `make documentation` to generate the documentation
+4. `make test` to run the tests
 
 Enjoy!
 

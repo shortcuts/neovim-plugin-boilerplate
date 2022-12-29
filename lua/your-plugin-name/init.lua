@@ -1,6 +1,6 @@
 local YourPluginName = {}
 
---- Toggle the plugin by calling the `enable`/`disable` methods respectively.
+-- Toggle the plugin by calling the `enable`/`disable` methods respectively.
 function YourPluginName.toggle()
     -- when the config is not set to the global object, we set it
     if YourPluginName.config == nil then
