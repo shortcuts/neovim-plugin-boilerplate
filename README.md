@@ -52,36 +52,28 @@ git clone git@github.com:shortcuts/neovim-plugin-boilerplate.git ~/my-awesome-pl
 #### File names
 
 ```sh
-mv plugin/YOUR_PLUGIN_NAME.lua plugin/my-awesome-plugin.lua
+mv plugin/your-plugin-name.lua plugin/my-awesome-plugin.lua
+mv lua/your-plugin-name lua/my-awesome-plugin
 mv README_TEMPLATE.md README.md 
 
 ```
 
-#### References
+#### Search and replace placeholder occurrences:
 
-##### Go to the plugin directory and open Neovim:
-
-```sh
-cd ~/my-awesome-plugin.nvim && nvim .
-```
-
-##### Search and replace placeholder occurrences:
-
-> For Lua and README.md files
+> Below actions are Neovim commands
 
 ```vim
 :vimgrep /YourPluginName/ **/*
 :cfdo %s/YourPluginName/MyAwesomePlugin/g | update
 
-:vimgrep /your-plugin-name/ **/*
+:vimgrep /your-plugin-name/ **/* .github/**
 :cfdo %s/your-plugin-name/my-awesome-plugin/g | update
-```
 
-> For GitHub action files
+:vimgrep /YOUR_GITHUB_NAME/ .chglog/** .github/**
+:cfdo %s/YOUR_GITHUB_NAME/shortcuts/g | update
 
-```vim
-:vimgrep /your-plugin-name/ .github/**
-:cfdo %s/your-plugin-name/my-awesome-plugin/g | update
+:vimgrep /YOUR_REPOSITORY_NAME/ .chglog/** **/*.md
+:cfdo %s/YOUR_REPOSITORY_NAME/my-awesome-plugin.nvim/g | update
 ```
 
 ### 3 - Code

@@ -1,5 +1,5 @@
 <p align="center">
-  <h1 align="center">YOUR_PLUGIN_NAME</h2>
+  <h1 align="center">your-plugin-name</h2>
 </p>
 
 <p align="center">
@@ -47,9 +47,9 @@ _[GIF version of the showcase video for mobile users](SHOWCASE_GIF_LINK)_
 
 ```lua
 -- stable version
-use {"YOUR_PLUGIN_NAME", tag = "*" }
+use {"your-plugin-name", tag = "*" }
 -- dev version
-use {"YOUR_PLUGIN_NAME"}
+use {"your-plugin-name"}
 ```
 
 </td>
@@ -64,9 +64,9 @@ use {"YOUR_PLUGIN_NAME"}
 
 ```lua
 -- stable version
-Plug "YOUR_PLUGIN_NAME", { "tag": "*" }
+Plug "your-plugin-name", { "tag": "*" }
 -- dev version
-Plug "YOUR_PLUGIN_NAME"
+Plug "your-plugin-name"
 ```
 
 </td>
@@ -81,9 +81,9 @@ Plug "YOUR_PLUGIN_NAME"
 
 ```lua
 -- stable version
-require("lazy").setup({{"YOUR_PLUGIN_NAME", version = "*"}})
+require("lazy").setup({{"your-plugin-name", version = "*"}})
 -- dev version
-require("lazy").setup({"YOUR_PLUGIN_NAME"})
+require("lazy").setup({"your-plugin-name"})
 ```
 
 </td>
@@ -103,11 +103,11 @@ require("lazy").setup({"YOUR_PLUGIN_NAME"})
 <details>
 <summary>Click to unfold the full list of options with their default values</summary>
 
-> **Note**: The options are also available in Neovim by calling `:h YOUR_PLUGIN_NAME.options`
+> **Note**: The options are also available in Neovim by calling `:h your-plugin-name.options`
 
 ```lua
-require("YOUR_PLUGIN_NAME").setup({
-    -- you can copy the full list from lua/YOUR_PLUGIN_NAME/config.lua
+require("your-plugin-name").setup({
+    -- you can copy the full list from lua/your-plugin-name/config.lua
 })
 ```
 
