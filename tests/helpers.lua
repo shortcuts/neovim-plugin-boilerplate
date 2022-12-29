@@ -42,9 +42,13 @@ Helpers.expect.config_equality = MiniTest.new_expectation(
 -- Check type equality of a config `field` against `value` in the given `child` process.
 -- @usage config_type_equality(child, "debug", "boolean")
 Helpers.expect.config_type_equality = MiniTest.new_expectation(
-    "config option matches",
+    "config option type matches",
     function(child, field, value)
-        return Helpers.expect.global_equality(child, "_G.YourPluginName.config." .. field, value)
+        return Helpers.expect.global_equality(
+            child,
+            "type(_G.YourPluginName.config." .. field .. ")",
+            value
+        )
     end,
     errorMessage
 )

@@ -1,0 +1,45 @@
+==============================================================================
+------------------------------------------------------------------------------
+                                                        *YourPluginName.options*
+                            `YourPluginName.options`
+Your plugin configuration with its default values.
+
+Default values:
+>
+  YourPluginName.options = {
+      -- Prints useful logs about what event are triggered, and reasons actions are executed.
+      debug = false,
+  }
+
+<
+
+------------------------------------------------------------------------------
+                                                        *YourPluginName.setup()*
+                       `YourPluginName.setup`({options})
+Define your your-plugin-name setup.
+
+Parameters~
+{options} `(table)` Module config table. See |YourPluginName.options|.
+
+Usage~
+`require("your-plugin-name").setup()` (add `{}` with your |YourPluginName.options| table)
+
+
+==============================================================================
+------------------------------------------------------------------------------
+                                                       *YourPluginName.toggle()*
+                           `YourPluginName.toggle`()
+Toggle the plugin by calling the `enable`/`disable` methods respectively.
+
+------------------------------------------------------------------------------
+                                                       *YourPluginName.enable()*
+                           `YourPluginName.enable`()
+A method to enable your plugin.
+
+------------------------------------------------------------------------------
+                                                      *YourPluginName.disable()*
+                           `YourPluginName.disable`()
+A method to disable your plugin.
+
+
+ vim:tw=78:ts=8:noet:ft=help:norl:
