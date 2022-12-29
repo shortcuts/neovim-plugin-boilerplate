@@ -9,6 +9,7 @@
 ## ⚡️ Features
 
 - README.md template
+- GitHub Release script
 - Perfect for open-source:
   - CODEOWNERS file for PR auto-assign
   - Issues and PR templates
