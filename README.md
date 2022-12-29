@@ -69,7 +69,7 @@ mv README_TEMPLATE.md README.md
 :vimgrep /your-plugin-name/ **/* .github/**
 :cfdo %s/your-plugin-name/my-awesome-plugin/g | update
 
-:vimgrep /YOUR_GITHUB_NAME/ .chglog/** .github/**
+:vimgrep /YOUR_GITHUB_NAME/ .chglog/** .github/** **/*.md
 :cfdo %s/YOUR_GITHUB_NAME/shortcuts/g | update
 
 :vimgrep /YOUR_REPOSITORY_NAME/ .chglog/** **/*.md
