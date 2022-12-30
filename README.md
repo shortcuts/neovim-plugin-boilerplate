@@ -1,9 +1,9 @@
 <p align="center">
-  <h1 align="center">Neovim plugin boilerplate</h2>
+  <h1 align="center">🔌  Neovim plugin boilerplate</h2>
 </p>
 
 <p align="center">
-    Minimal Neovim plugin boilerplate with already configured CI, docs and tests.
+    Plug and play Neovim plugin boilerplate with pre-configured CI, CD, linter, docs and tests.
 </p>
 
 ## ⚡️ Features
