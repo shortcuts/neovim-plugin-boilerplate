@@ -28,7 +28,9 @@ fi
 if [[ -z "$PLUGIN_NAME" ]]; then
         read -rp $'\t> No PLUGIN_NAME provided, defaulting to \033[1;32m'"$REPOSITORY_NAME"$'\033[0m, continue? [Y/n]\n' yn
         case $yn in
-            [Yy]* ) ;;
+            [Yy]* )
+                PLUGIN_NAME=$REPOSITORY_NAME
+                ;;
             [Nn]* ) 
                 echo -e "\t> Enter your plugin name"
                 read PLUGIN_NAME
@@ -37,8 +39,6 @@ if [[ -z "$PLUGIN_NAME" ]]; then
                 echo -e $USAGE
                 exit 1;;
         esac
-
-    PLUGIN_NAME=$REPOSITORY_NAME
 fi
 
 echo -e "Username:    \033[1;32m$USERNAME\033[0m\nRepository:  \033[1;32m$REPOSITORY_NAME\033[0m\nPlugin:      \033[1;32m$PLUGIN_NAME\033[0m\n\n\tRenaming placeholder files..."
