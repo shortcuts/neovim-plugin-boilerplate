@@ -14,7 +14,7 @@ if [[ -z "$REPOSITORY_NAME" ]]; then
 
         read -rp $'\t> No REPOSITORY_NAME provided, is \033[1;32m'"$REPOSITORY_NAME"$'\033[0m good? [Y/n]\n' yn
         case $yn in
-            [Yy]* ) break;;
+            [Yy]* );;
             [Nn]* ) 
                 echo -e "\t> Enter your repository name"
                 read REPOSITORY_NAME
@@ -28,7 +28,7 @@ fi
 if [[ -z "$PLUGIN_NAME" ]]; then
         read -rp $'\t> No PLUGIN_NAME provided, defaulting to \033[1;32m'"$REPOSITORY_NAME"$'\033[0m, continue? [Y/n]\n' yn
         case $yn in
-            [Yy]* ) break;;
+            [Yy]* ) ;;
             [Nn]* ) 
                 echo -e "\t> Enter your plugin name"
                 read PLUGIN_NAME
