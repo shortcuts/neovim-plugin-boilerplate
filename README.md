@@ -60,11 +60,11 @@ gh repo my-awesome-plugin -p shortcuts/neovim-plugin-boilerplate --public
 The [setup script](https://github.com/shortcuts/neovim-plugin-boilerplate/blob/main/scripts/setup.sh) will rename files and placeholder names for you. Once done, you can remove anything `setup` related if you want to.
 
 ```sh
-# tries to get your repository name
+# interactively
 make setup
 
-# use the given repository name
-REPOSITORY=my-awesome-plugin make setup
+# automated
+USERNAME=my-github-username PLUGIN_NAME=my-awesome-plugin REPOSITORY_NAME=my-awesome-plugin.nvim make setup
 ```
 
 #### Manually
