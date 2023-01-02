@@ -8,6 +8,7 @@
 
 ## ⚡️ Features
 
+- interactive `setup` script
 - README.md template
 - GitHub Release script
 - Perfect for open-source:
@@ -15,8 +16,9 @@
   - Issues and PR templates
 - CI with GitHub actions:
   - Test running on multiple Neovim version
-  - Lint check on CI
-  - Minimal run time, ideal for free plan
+  - Lint check
+  - Documentation generation check
+  - Minimal run time, ideal for free plans
 - Docs with [mini.nvim `doc` plugin](https://github.com/echasnovski/mini.nvim/blob/main/lua/mini/doc.lua)
 - Tests with [mini.nvim `test` plugin](https://github.com/echasnovski/mini.nvim/blob/main/lua/mini/test.lua)
 - Linting with [Stylua](https://github.com/JohnnyMorganz/StyLua)
@@ -25,7 +27,7 @@
 ## 📋 Installation
 
 > **Note**:
-> This section is only required if you wish to setup the same linter and changelog generator as I do.
+> This section is only required if you wish to use the linter and changelog generator provided by the template.
 
 - [Install Stylua linter](https://github.com/JohnnyMorganz/StyLua#installation)
 - [Install git-chglog generator](https://github.com/git-chglog/git-chglog)
@@ -60,7 +62,7 @@ gh repo my-awesome-plugin -p shortcuts/neovim-plugin-boilerplate --public
 The [setup script](https://github.com/shortcuts/neovim-plugin-boilerplate/blob/main/scripts/setup.sh) will rename files and placeholder names for you. Once done, you can remove anything `setup` related if you want to.
 
 ```sh
-# interactively
+# interactive
 make setup
 
 # automated
