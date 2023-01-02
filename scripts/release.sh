@@ -1,8 +1,8 @@
 #!/bin/bash
 
 if [[ -z "$NEXT_TAG" ]]; then
-  echo "usage: NEXT_TAG=0.2.2 make release"
-  exit 1
+    echo "usage: NEXT_TAG=0.2.2 make release"
+    exit 1
 fi
 
 echo "Generating changelog for version $NEXT_TAG"

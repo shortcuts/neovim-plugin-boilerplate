@@ -2,7 +2,7 @@ style: github
 template: template.md
 info:
   title: CHANGELOG
-  repository_url: https://github.com/YOUR_GITHUB_NAME/YOUR_REPOSITORY_NAME
+  repository_url: https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPOSITORY_NAME
 options:
   commits:
     filters:

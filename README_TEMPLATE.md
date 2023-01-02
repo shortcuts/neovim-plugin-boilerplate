@@ -125,7 +125,7 @@ PRs and issues are always welcome. Make sure to provide as much context as possi
 
 ## 🗞 Wiki
 
-You can find guides and showcase of the plugin on [the Wiki](https://github.com/YOUR_GITHUB_NAME/YOUR_REPOSITORY_NAME/wiki)
+You can find guides and showcase of the plugin on [the Wiki](https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPOSITORY_NAME/wiki)
 
 ## 🎭 Motivations
 
