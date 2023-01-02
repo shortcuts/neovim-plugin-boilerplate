@@ -3,29 +3,40 @@
 
 all:
 
+# runs all the test files.
 test:
 	nvim --version | head -n 1 && echo ''
 	nvim --headless --noplugin -u ./scripts/minimal_init.lua \
 		-c "lua require('mini.test').setup()" \
 		-c "lua MiniTest.run({ execute = { reporter = MiniTest.gen_reporter.stdout({ group_depth = 1 }) } })"
 
+# installs `mini.nvim`, used for both the tests and documentation.
 deps:
 	@mkdir -p deps
 	git clone --depth 1 https://github.com/echasnovski/mini.nvim deps/mini.nvim
 
-test-ci: deps
-	nvim --headless --noplugin -u ./scripts/minimal_init.lua \
-		-c "lua require('mini.test').setup()" \
-		-c "lua MiniTest.run()"
+# installs deps before running tests, useful for the CI.
+test-ci: deps test
 
+# generates the documentation.
 documentation:
 	nvim --headless --noplugin -u ./scripts/minimal_init.lua -c "lua require('mini.doc').generate()" -c "qa!"
 
+# installs deps before running the documentation generation, useful for the CI.
+documentation-ci: deps documentation
+
+# performs a lint check and fixes issue if possible, following the config in `stylua.toml`.
 lint:
 	stylua .
 
+# runs the release script, go to file to see more details.
 release:
 	./scripts/release.sh
 
+# generates a changelog, used by the `release` script.
 changelog:
 	git-chglog -o CHANGELOG.md -no-case
+
+# setup
+setup:
+	./scripts/setup.sh

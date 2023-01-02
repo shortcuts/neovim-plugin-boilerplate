@@ -30,22 +30,44 @@
 - [Install Stylua linter](https://github.com/JohnnyMorganz/StyLua#installation)
 - [Install git-chglog generator](https://github.com/git-chglog/git-chglog)
 
-## ☄ Usage
+## ☄ Getting started
 
 The following checklist is all your need to do to start writing your first plugin.
 
-### 1 - Clone the repository where you'd like your plugin to live
+### 1 - Clone the template repository
+
+#### via HTTPs
 
 ```sh
-# via HTTPs
 git clone https://github.com/shortcuts/neovim-plugin-boilerplate.git ~/my-awesome-plugin.nvim
+```
 
-# via SSH
+#### via SSH
+
+```sh
 git clone git@github.com:shortcuts/neovim-plugin-boilerplate.git ~/my-awesome-plugin.nvim
+```
 
+### via GH
+```sh
+gh repo my-awesome-plugin -p shortcuts/neovim-plugin-boilerplate --public
 ```
 
 ### 2 - Replace placeholder names with your plugin name
+
+#### Automatically
+
+The [setup script](https://github.com/shortcuts/neovim-plugin-boilerplate/blob/main/scripts/setup.sh) will rename files and placeholder names for you. Once done, you can remove anything `setup` related if you want to.
+
+```sh
+# tries to get your repository name
+make setup
+
+# use the given repository name
+REPOSITORY=my-awesome-plugin make setup
+```
+
+#### Manually
 
 > **Note**:
 > The placeholder names are purposely written with different casing. Make sure to keep it.
@@ -53,6 +75,7 @@ git clone git@github.com:shortcuts/neovim-plugin-boilerplate.git ~/my-awesome-pl
 #### File names
 
 ```sh
+rm -rf doc
 mv plugin/your-plugin-name.lua plugin/my-awesome-plugin.lua
 mv lua/your-plugin-name lua/my-awesome-plugin
 mv README_TEMPLATE.md README.md 
@@ -61,8 +84,6 @@ mv README_TEMPLATE.md README.md
 
 #### Search and replace placeholder occurrences:
 
-> Below actions are Neovim commands
-
 ```vim
 :vimgrep /YourPluginName/ **/*
 :cfdo %s/YourPluginName/MyAwesomePlugin/g | update
@@ -70,8 +91,8 @@ mv README_TEMPLATE.md README.md
 :vimgrep /your-plugin-name/ **/* .github/**
 :cfdo %s/your-plugin-name/my-awesome-plugin/g | update
 
-:vimgrep /YOUR_GITHUB_NAME/ .chglog/** .github/** **/*.md
-:cfdo %s/YOUR_GITHUB_NAME/shortcuts/g | update
+:vimgrep /YOUR_GITHUB_USERNAME/ .chglog/** .github/** **/*.md
+:cfdo %s/YOUR_GITHUB_USERNAME/shortcuts/g | update
 
 :vimgrep /YOUR_REPOSITORY_NAME/ .chglog/** **/*.md
 :cfdo %s/YOUR_REPOSITORY_NAME/my-awesome-plugin.nvim/g | update
