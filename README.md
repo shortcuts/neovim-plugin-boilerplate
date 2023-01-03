@@ -50,7 +50,7 @@ git clone https://github.com/shortcuts/neovim-plugin-boilerplate.git ~/my-awesom
 git clone git@github.com:shortcuts/neovim-plugin-boilerplate.git ~/my-awesome-plugin.nvim
 ```
 
-### via GH
+#### via GH
 ```sh
 gh repo my-awesome-plugin -p shortcuts/neovim-plugin-boilerplate --public
 ```
