@@ -29,14 +29,6 @@ documentation-ci: deps documentation
 lint:
 	stylua .
 
-# runs the release script, go to file to see more details.
-release:
-	./scripts/release.sh
-
-# generates a changelog, used by the `release` script.
-changelog:
-	git-chglog -o CHANGELOG.md -no-case
-
 # setup
 setup:
 	./scripts/setup.sh

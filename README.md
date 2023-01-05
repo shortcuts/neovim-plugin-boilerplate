@@ -10,11 +10,11 @@
 
 - interactive `setup` script
 - README.md template
-- GitHub Release script
 - Perfect for open-source:
   - CODEOWNERS file for PR auto-assign
   - Issues and PR templates
-- CI with GitHub actions:
+- CD leveraging [release-please-action](https://github.com/google-github-actions/release-please-action)
+- CI:
   - Test running on multiple Neovim version
   - Lint check
   - Documentation generation check
@@ -22,15 +22,13 @@
 - Docs with [mini.nvim `doc` plugin](https://github.com/echasnovski/mini.nvim/blob/main/lua/mini/doc.lua)
 - Tests with [mini.nvim `test` plugin](https://github.com/echasnovski/mini.nvim/blob/main/lua/mini/test.lua)
 - Linting with [Stylua](https://github.com/JohnnyMorganz/StyLua)
-- Changelog with [git-chglog](https://github.com/git-chglog/git-chglog)
 
 ## 📋 Installation
 
 > **Note**:
-> This section is only required if you wish to use the linter and changelog generator provided by the template.
+> This section is only required if you wish to use the linter provided by the template.
 
 - [Install Stylua linter](https://github.com/JohnnyMorganz/StyLua#installation)
-- [Install git-chglog generator](https://github.com/git-chglog/git-chglog)
 
 ## ☄ Getting started
 
@@ -93,10 +91,10 @@ mv README_TEMPLATE.md README.md
 :vimgrep /your-plugin-name/ **/* .github/**
 :cfdo %s/your-plugin-name/my-awesome-plugin/g | update
 
-:vimgrep /YOUR_GITHUB_USERNAME/ .chglog/** .github/** **/*.md
+:vimgrep /YOUR_GITHUB_USERNAME/ .github/** **/*.md
 :cfdo %s/YOUR_GITHUB_USERNAME/shortcuts/g | update
 
-:vimgrep /YOUR_REPOSITORY_NAME/ .chglog/** **/*.md
+:vimgrep /YOUR_REPOSITORY_NAME/ **/*.md
 :cfdo %s/YOUR_REPOSITORY_NAME/my-awesome-plugin.nvim/g | update
 ```
 

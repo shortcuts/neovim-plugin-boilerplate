@@ -54,5 +54,5 @@ PASCAL_CASE_PLUGIN_NAME=$(echo "$PLUGIN_NAME" | perl -pe 's/(^|-)./uc($&)/ge;s/-
 
 grep -rl "YourPluginName" .github/ plugin/ tests/ lua/ | xargs sed -i "" -e "s/YourPluginName/$PASCAL_CASE_PLUGIN_NAME/g"
 grep -rl "your-plugin-name" README.md .github/ plugin/ tests/ lua/ | xargs sed -i "" -e "s/your-plugin-name/$PLUGIN_NAME/g"
-grep -rl "YOUR_GITHUB_USERNAME" README.md .github/ .chglog/ | xargs sed -i "" -e "s/YOUR_GITHUB_USERNAME/$USERNAME/g"
-grep -rl "YOUR_REPOSITORY_NAME" README.md .github/ .chglog/ | xargs sed -i "" -e "s/YOUR_REPOSITORY_NAME/$REPOSITORY_NAME/g"
+grep -rl "YOUR_GITHUB_USERNAME" README.md .github/ | xargs sed -i "" -e "s/YOUR_GITHUB_USERNAME/$USERNAME/g"
+grep -rl "YOUR_REPOSITORY_NAME" README.md .github/ | xargs sed -i "" -e "s/YOUR_REPOSITORY_NAME/$REPOSITORY_NAME/g"
