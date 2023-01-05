@@ -10,11 +10,11 @@
 
 - interactive `setup` script
 - README.md template
-- GitHub Release script
 - Perfect for open-source:
   - CODEOWNERS file for PR auto-assign
   - Issues and PR templates
-- CI with GitHub actions:
+- CD leveraging [release-please-action](https://github.com/google-github-actions/release-please-action)
+- CI:
   - Test running on multiple Neovim version
   - Lint check
   - Documentation generation check

@@ -86,10 +86,13 @@ jobs:
           release-type: simple
           package-name: YOUR_REPOSITORY_NAME
 
-      - name: tag new release
+      - name: tag stable versions
         if: ${{ steps.release.outputs.release_created }}
         run: |
           git config user.name github-actions[bot]
           git config user.email github-actions[bot]@users.noreply.github.com
           git remote add gh-token "https://${{ secrets.GITHUB_TOKEN }}@github.com/google-github-actions/release-please-action.git"
-          NEXT_TAG="${{ steps.release.outputs.version }}" make release
+          git tag -d stable || true
+          git push origin :stable || true
+          git tag -a stable -m "Last Stable Release"
+          git push origin stable
