@@ -1,5 +1,5 @@
 <p align="center">
-  <h1 align="center">your-plugin-name</h2>
+  <h1 align="center">YOUR_REPOSITORY_NAME</h2>
 </p>
 
 <p align="center">
@@ -47,9 +47,9 @@ _[GIF version of the showcase video for mobile users](SHOWCASE_GIF_LINK)_
 
 ```lua
 -- stable version
-use {"your-plugin-name", tag = "*" }
+use {"YOUR_REPOSITORY_NAME", tag = "*" }
 -- dev version
-use {"your-plugin-name"}
+use {"YOUR_REPOSITORY_NAME"}
 ```
 
 </td>
@@ -64,9 +64,9 @@ use {"your-plugin-name"}
 
 ```lua
 -- stable version
-Plug "your-plugin-name", { "tag": "*" }
+Plug "YOUR_REPOSITORY_NAME", { "tag": "*" }
 -- dev version
-Plug "your-plugin-name"
+Plug "YOUR_REPOSITORY_NAME"
 ```
 
 </td>
@@ -81,9 +81,9 @@ Plug "your-plugin-name"
 
 ```lua
 -- stable version
-require("lazy").setup({{"your-plugin-name", version = "*"}})
+require("lazy").setup({{"YOUR_REPOSITORY_NAME", version = "*"}})
 -- dev version
-require("lazy").setup({"your-plugin-name"})
+require("lazy").setup({"YOUR_REPOSITORY_NAME"})
 ```
 
 </td>
