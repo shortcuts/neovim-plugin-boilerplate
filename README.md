@@ -50,7 +50,7 @@ git clone git@github.com:shortcuts/neovim-plugin-boilerplate.git ~/my-awesome-pl
 
 #### via GH
 ```sh
-gh repo my-awesome-plugin -p shortcuts/neovim-plugin-boilerplate --public
+gh repo create my-awesome-plugin --template shortcuts/neovim-plugin-boilerplate --public --clone
 ```
 
 ### 2 - Replace placeholder names with your plugin name
