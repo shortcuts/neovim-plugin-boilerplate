@@ -1,4 +1,4 @@
-local M = require("no-neck-pain.main")
+local M = require("your-plugin-name.main")
 local YourPluginName = {}
 
 -- Toggle the plugin by calling the `enable`/`disable` methods respectively.
