@@ -1,9 +1,11 @@
 local D = {}
 
--- prints a log if the local state has `debug` set to `true`.
--- @param scope string: an identifier for the scope, e.g. the method name.
--- @param str string: the string to format (same as string.format()).
--- @param args ...: the params to format the string.
+---prints only if debug is true.
+---
+---@param scope string: the scope from where this function is called.
+---@param str string: the formatted string.
+---@param ... any: the arguments of the formatted string.
+---@private
 function D.log(scope, str, ...)
     if _G.YourPluginName.config ~= nil and not _G.YourPluginName.config.debug then
         return
@@ -27,9 +29,11 @@ function D.log(scope, str, ...)
     )
 end
 
--- prints the given `map` if the local state has `debug` set to `true`.
--- @param table list: a list to print.
--- @param indent int: the default indent of the table, leave empty for 0.
+---prints the table if debug is true.
+---
+---@param table table: the table to print.
+---@param indent number?: the default indent value, starts at 0.
+---@private
 function D.tprint(table, indent)
     if _G.YourPluginName.config ~= nil and not _G.YourPluginName.config.debug then
         return
@@ -46,6 +50,8 @@ function D.tprint(table, indent)
             D.tprint(v, indent + 1)
         elseif type(v) == "boolean" then
             print(formatting .. tostring(v))
+        elseif type(v) == "function" then
+            print(formatting .. "FUNCTION")
         else
             print(formatting .. v)
         end

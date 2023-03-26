@@ -1,5 +1,4 @@
 local D = require("your-plugin-name.util.debug")
-local M = require("your-plugin-name.util.map")
 
 -- internal methods
 local YourPluginName = {}
@@ -10,38 +9,41 @@ local S = {
     enabled = false,
 }
 
---- Toggle the plugin by calling the `enable`/`disable` methods respectively.
+---Toggle the plugin by calling the `enable`/`disable` methods respectively.
+---@private
 function YourPluginName.toggle()
     if S.enabled then
-        YourPluginName.disable()
-
-        return false
+        return YourPluginName.disable()
     end
 
-    YourPluginName.enable()
-
-    return true
+    return YourPluginName.enable()
 end
 
---- A method to enable your plugin.
+---Initializes the plugin.
+---@private
 function YourPluginName.enable()
     if S.enabled then
-        return
+        return S
     end
 
     S.enabled = true
+
+    return S
 end
 
---- A method to disable your plugin.
+---Disables the plugin and reset the internal state.
+---@private
 function YourPluginName.disable()
     if not S.enabled then
-        return
+        return S
     end
 
     -- reset the state
     S = {
         enabled = false,
     }
+
+    return S
 end
 
-return { YourPluginName, S }
+return YourPluginName

@@ -15,7 +15,9 @@ YourPluginName.options = {
 ---
 ---@usage `require("your-plugin-name").setup()` (add `{}` with your |YourPluginName.options| table)
 function YourPluginName.setup(options)
-    YourPluginName.options = vim.tbl_deep_extend("keep", options or {}, YourPluginName.options)
+    options = options or {}
+
+    YourPluginName.options = vim.tbl_deep_extend("keep", options, YourPluginName.options)
 
     return YourPluginName.options
 end
