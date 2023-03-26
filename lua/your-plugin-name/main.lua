@@ -1,5 +1,4 @@
 local D = require("your-plugin-name.util.debug")
-local M = require("your-plugin-name.util.map")
 
 -- internal methods
 local YourPluginName = {}
