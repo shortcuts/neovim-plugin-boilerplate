@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.1.0](https://github.com/shortcuts/neovim-plugin-boilerplate/compare/v1.0.0...v1.1.0) (2023-03-26)
+
+
+### Features
+
+* make setup.sh more reliable ([6c2f360](https://github.com/shortcuts/neovim-plugin-boilerplate/commit/6c2f360be9acd1c747f9cce112c6a0205e76532c))
+* template cleanup and improvements ([#11](https://github.com/shortcuts/neovim-plugin-boilerplate/issues/11)) ([af2fcb0](https://github.com/shortcuts/neovim-plugin-boilerplate/commit/af2fcb0ffcac54eb9e4092bb860c22e29d2579dc))
+
+
+### Bug Fixes
+
+* CI diff documentation ([#9](https://github.com/shortcuts/neovim-plugin-boilerplate/issues/9)) ([c4b9836](https://github.com/shortcuts/neovim-plugin-boilerplate/commit/c4b98367f82a6fe47d7268ac7a3887643831eac8))
+
 ## 1.0.0 (2023-01-05)
 
 
