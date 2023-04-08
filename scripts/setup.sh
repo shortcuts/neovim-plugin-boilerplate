@@ -47,7 +47,7 @@ echo -e "Username:    \033[1;32m$USERNAME\033[0m\nRepository:  \033[1;32m$REPOSI
 rm -rf doc
 mv plugin/your-plugin-name.lua plugin/$PLUGIN_NAME.lua
 mv lua/your-plugin-name lua/$PLUGIN_NAME
-mv README_TEMPLATE.md README.md 
+mv README_TEMPLATE.md README.md
 
 echo -e "\tReplacing placeholder names..."
 
