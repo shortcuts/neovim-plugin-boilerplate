@@ -1,5 +1,22 @@
 ==============================================================================
 ------------------------------------------------------------------------------
+                                                       *YourPluginName.toggle()*
+                           `YourPluginName.toggle`()
+Toggle the plugin by calling the `enable`/`disable` methods respectively.
+
+------------------------------------------------------------------------------
+                                                       *YourPluginName.enable()*
+                           `YourPluginName.enable`()
+Initializes the plugin, sets event listeners and internal state.
+
+------------------------------------------------------------------------------
+                                                      *YourPluginName.disable()*
+                           `YourPluginName.disable`()
+Disables the plugin, clear highlight groups and autocmds, closes side buffers and resets the internal state.
+
+
+==============================================================================
+------------------------------------------------------------------------------
                                                         *YourPluginName.options*
                             `YourPluginName.options`
 Your plugin configuration with its default values.
