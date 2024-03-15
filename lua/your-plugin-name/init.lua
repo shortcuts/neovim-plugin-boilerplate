@@ -1,39 +1,34 @@
 local M = require("your-plugin-name.main")
+local C = require("your-plugin-name.config")
+
 local YourPluginName = {}
 
--- Toggle the plugin by calling the `enable`/`disable` methods respectively.
+--- Toggle the plugin by calling the `enable`/`disable` methods respectively.
 function YourPluginName.toggle()
-    -- when the config is not set to the global object, we set it
     if _G.YourPluginName.config == nil then
-        _G.YourPluginName.config = require("your-plugin-name.config").options
+        _G.YourPluginName.config = C.options
     end
 
-    _G.YourPluginName.state = M.toggle()
+    M.toggle("publicAPI_toggle")
 end
 
--- starts YourPluginName and set internal functions and state.
+--- Initializes the plugin, sets event listeners and internal state.
 function YourPluginName.enable()
     if _G.YourPluginName.config == nil then
-        _G.YourPluginName.config = require("your-plugin-name.config").options
+        _G.YourPluginName.config = C.options
     end
 
-    local state = M.enable()
-
-    if state ~= nil then
-        _G.YourPluginName.state = state
-    end
-
-    return state
+    M.enable("publicAPI_enable")
 end
 
--- disables YourPluginName and reset internal functions and state.
+--- Disables the plugin, clear highlight groups and autocmds, closes side buffers and resets the internal state.
 function YourPluginName.disable()
-    _G.YourPluginName.state = M.disable()
+    M.disable("publicAPI_disable")
 end
 
 -- setup YourPluginName options and merge them with user provided ones.
 function YourPluginName.setup(opts)
-    _G.YourPluginName.config = require("your-plugin-name.config").setup(opts)
+    _G.YourPluginName.config = C.setup(opts)
 end
 
 _G.YourPluginName = YourPluginName

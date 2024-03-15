@@ -8,7 +8,17 @@ test:
 	nvim --version | head -n 1 && echo ''
 	nvim --headless --noplugin -u ./scripts/minimal_init.lua \
 		-c "lua require('mini.test').setup()" \
-		-c "lua MiniTest.run({ execute = { reporter = MiniTest.gen_reporter.stdout({ group_depth = 1 }) } })"
+		-c "lua MiniTest.run({ execute = { reporter = MiniTest.gen_reporter.stdout({ group_depth = 2 }) } })"
+
+# runs all the test files on the nightly version, `bob` must be installed.
+test-nightly:
+	bob use nightly
+	make test
+
+# runs all the test files on the 0.8.3 version, `bob` must be installed.
+test-0.8.3:
+	bob use 0.8.3
+	make test
 
 # installs `mini.nvim`, used for both the tests and documentation.
 deps:
@@ -27,7 +37,7 @@ documentation-ci: deps documentation
 
 # performs a lint check and fixes issue if possible, following the config in `stylua.toml`.
 lint:
-	stylua .
+	stylua . -g '*.lua' -g '!deps/'
 
 # setup
 setup:
