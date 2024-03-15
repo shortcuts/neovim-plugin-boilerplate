@@ -18,10 +18,10 @@ Default values:
                        `YourPluginName.setup`({options})
 Define your your-plugin-name setup.
 
-Parameters~
+Parameters ~
 {options} `(table)` Module config table. See |YourPluginName.options|.
 
-Usage~
+Usage ~
 `require("your-plugin-name").setup()` (add `{}` with your |YourPluginName.options| table)
 
 

@@ -23,19 +23,19 @@ T["setup()"]["sets exposed methods and default options value"] = function()
     child.lua([[require('your-plugin-name').setup()]])
 
     -- global object that holds your plugin information
-    Helpers.global_type(child, "_G.YourPluginName", "table")
+    Helpers.expect.global_type(child, "_G.YourPluginName", "table")
 
     -- public methods
-    Helpers.global_type(child, "_G.YourPluginName.toggle", "function")
-    Helpers.global_type(child, "_G.YourPluginName.disable", "function")
-    Helpers.global_type(child, "_G.YourPluginName.enable", "function")
+    Helpers.expect.global_type(child, "_G.YourPluginName.toggle", "function")
+    Helpers.expect.global_type(child, "_G.YourPluginName.disable", "function")
+    Helpers.expect.global_type(child, "_G.YourPluginName.enable", "function")
 
     -- config
-    Helpers.global_type(child, "_G.YourPluginName.config", "table")
+    Helpers.expect.global_type(child, "_G.YourPluginName.config", "table")
 
     -- assert the value, and the type
-    Helpers.config(child, "debug", false)
-    Helpers.type_config(child, "debug", "boolean")
+    Helpers.expect.config(child, "debug", false)
+    Helpers.expect.config_type(child, "debug", "boolean")
 end
 
 T["setup()"]["overrides default values"] = function()
@@ -45,8 +45,8 @@ T["setup()"]["overrides default values"] = function()
     })]])
 
     -- assert the value, and the type
-    Helpers.config(child, "debug", true)
-    Helpers.type_config(child, "debug", "boolean")
+    Helpers.expect.config(child, "debug", true)
+    Helpers.expect.config_type(child, "debug", "boolean")
 end
 
 return T

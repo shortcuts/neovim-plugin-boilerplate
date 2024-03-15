@@ -1,16 +1,47 @@
--- partially imported from https://github.com/echasnovski/mini.nvim
+-- imported from https://github.com/echasnovski/mini.nvim
 local Helpers = {}
 
 -- Add extra expectations
 Helpers.expect = vim.deepcopy(MiniTest.expect)
 
--- The error message returned when a test fails.
+function Helpers.toggle(child)
+    child.cmd("YourPluginName")
+    Helpers.wait(child)
+end
+
+function Helpers.wait(child)
+    child.loop.sleep(10)
+end
+
+function Helpers.currentWin(child)
+    return child.lua_get("vim.api.nvim_get_current_win()")
+end
+
+function Helpers.winsInTab(child, tab)
+    tab = tab or "_G.YourPluginName.state.activeTab"
+
+    return child.lua_get("vim.api.nvim_tabpage_list_wins(" .. tab .. ")")
+end
+
+function Helpers.listBuffers(child)
+    return child.lua_get("vim.api.nvim_list_bufs()")
+end
+
 local function errorMessage(str, pattern)
     return string.format("Pattern: %s\nObserved string: %s", vim.inspect(pattern), str)
 end
 
--- Check equality of a global `field` against `value` in the given `child` process.
--- @usage global(child, "_G.YourPluginNameLoaded", true)
+Helpers.expect.buf_width = MiniTest.new_expectation(
+    "variable in child process matches",
+    function(child, field, value)
+        return Helpers.expect.equality(
+            child.lua_get("vim.api.nvim_win_get_width(_G.YourPluginName.state." .. field .. ")"),
+            value
+        )
+    end,
+    errorMessage
+)
+
 Helpers.expect.global = MiniTest.new_expectation(
     "variable in child process matches",
     function(child, field, value)
@@ -19,8 +50,6 @@ Helpers.expect.global = MiniTest.new_expectation(
     errorMessage
 )
 
--- Check type equality of a global `field` against `value` in the given `child` process.
--- @usage global_type(child, "_G.YourPluginNameLoaded", "boolean")
 Helpers.expect.global_type = MiniTest.new_expectation(
     "variable type in child process matches",
     function(child, field, value)
@@ -29,8 +58,6 @@ Helpers.expect.global_type = MiniTest.new_expectation(
     errorMessage
 )
 
--- Check equality of a config `field` against `value` in the given `child` process.
--- @usage option(child, "debug", true)
 Helpers.expect.config = MiniTest.new_expectation(
     "config option matches",
     function(child, field, value)
@@ -39,8 +66,6 @@ Helpers.expect.config = MiniTest.new_expectation(
     errorMessage
 )
 
--- Check type equality of a config `field` against `value` in the given `child` process.
--- @usage config_type(child, "debug", "boolean")
 Helpers.expect.config_type = MiniTest.new_expectation(
     "config option type matches",
     function(child, field, value)
@@ -49,14 +74,10 @@ Helpers.expect.config_type = MiniTest.new_expectation(
     errorMessage
 )
 
--- Check equality of a state `field` against `value` in the given `child` process.
--- @usage state(child, "enabled", true)
 Helpers.expect.state = MiniTest.new_expectation("state matches", function(child, field, value)
-    return Helpers.expect.global(child, "_G.YourPluginName.enabled." .. field, value)
+    return Helpers.expect.global(child, "_G.YourPluginName.state." .. field, value)
 end, errorMessage)
 
--- Check type equality of a state `field` against `value` in the given `child` process.
--- @usage state_type(child, "enabled", "boolean")
 Helpers.expect.state_type = MiniTest.new_expectation(
     "state type matches",
     function(child, field, value)
@@ -78,8 +99,9 @@ Helpers.new_child_neovim = function()
     local child = MiniTest.new_child_neovim()
 
     local prevent_hanging = function(method)
-    -- stylua: ignore
-    if not child.is_blocked() then return end
+        if not child.is_blocked() then
+            return
+        end
 
         local msg =
             string.format("Can not use `child.%s` because child process is blocked.", method)
@@ -138,6 +160,23 @@ Helpers.new_child_neovim = function()
         prevent_hanging("get_size")
 
         return { child.o.lines, child.o.columns }
+    end
+
+    --- Assert visual marks
+    ---
+    --- Useful to validate visual selection
+    ---
+    ---@param first number|table Table with start position or number to check linewise.
+    ---@param last number|table Table with finish position or number to check linewise.
+    ---@private
+    child.expect_visual_marks = function(first, last)
+        child.ensure_normal_mode()
+
+        first = type(first) == "number" and { first, 0 } or first
+        last = type(last) == "number" and { last, 2147483647 } or last
+
+        MiniTest.expect.equality(child.api.nvim_buf_get_mark(0, "<"), first)
+        MiniTest.expect.equality(child.api.nvim_buf_get_mark(0, ">"), last)
     end
 
     child.expect_screenshot = function(opts, path, screenshot_opts)
