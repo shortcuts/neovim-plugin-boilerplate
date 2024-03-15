@@ -21,6 +21,7 @@
   - Minimal run time, ideal for free plans
 - Docs with [mini.nvim `doc` plugin](https://github.com/echasnovski/mini.nvim/blob/main/lua/mini/doc.lua)
 - Tests with [mini.nvim `test` plugin](https://github.com/echasnovski/mini.nvim/blob/main/lua/mini/test.lua)
+    - Versioned testing with [`bob`](https://github.com/MordechaiHadad/bob)
 - Linting with [Stylua](https://github.com/JohnnyMorganz/StyLua)
 
 ## 📋 Installation
@@ -29,6 +30,7 @@
 > This section is only required if you wish to use the linter provided by the template.
 
 - [Install Stylua linter](https://github.com/JohnnyMorganz/StyLua#installation)
+- [Install `bob` neovim version manager](https://github.com/MordechaiHadad/bob)
 
 ## ☄ Getting started
 
@@ -55,7 +57,7 @@ gh repo create my-awesome-plugin --template shortcuts/neovim-plugin-boilerplate 
 
 ### 2 - Replace placeholder names with your plugin name
 
-#### Automatically
+#### ✨ Automatically
 
 The [setup script](https://github.com/shortcuts/neovim-plugin-boilerplate/blob/main/scripts/setup.sh) will rename files and placeholder names for you. Once done, you can remove anything `setup` related if you want to.
 
@@ -67,12 +69,12 @@ make setup
 USERNAME=my-github-username PLUGIN_NAME=my-awesome-plugin REPOSITORY_NAME=my-awesome-plugin.nvim make setup
 ```
 
-#### Manually
+#### ✍️ Manually
 
 > **Note**:
 > The placeholder names are purposely written with different casing. Make sure to keep it.
 
-#### File names
+##### File names
 
 ```sh
 rm -rf doc
@@ -82,7 +84,7 @@ mv README_TEMPLATE.md README.md
 
 ```
 
-#### Search and replace placeholder occurrences:
+##### Search and replace placeholder occurrences:
 
 ```vim
 :vimgrep /YourPluginName/ **/*

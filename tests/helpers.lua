@@ -10,8 +10,8 @@ local function errorMessage(str, pattern)
 end
 
 -- Check equality of a global `field` against `value` in the given `child` process.
--- @usage global_equality(child, "_G.YourPluginNameLoaded", true)
-Helpers.expect.global_equality = MiniTest.new_expectation(
+-- @usage global(child, "_G.YourPluginNameLoaded", true)
+Helpers.expect.global = MiniTest.new_expectation(
     "variable in child process matches",
     function(child, field, value)
         return Helpers.expect.equality(child.lua_get(field), value)
@@ -20,59 +20,47 @@ Helpers.expect.global_equality = MiniTest.new_expectation(
 )
 
 -- Check type equality of a global `field` against `value` in the given `child` process.
--- @usage global_type_equality(child, "_G.YourPluginNameLoaded", "boolean")
-Helpers.expect.global_type_equality = MiniTest.new_expectation(
+-- @usage global_type(child, "_G.YourPluginNameLoaded", "boolean")
+Helpers.expect.global_type = MiniTest.new_expectation(
     "variable type in child process matches",
     function(child, field, value)
-        return Helpers.expect.global_equality(child, "type(" .. field .. ")", value)
+        return Helpers.expect.global(child, "type(" .. field .. ")", value)
     end,
     errorMessage
 )
 
 -- Check equality of a config `field` against `value` in the given `child` process.
--- @usage option_equality(child, "debug", true)
-Helpers.expect.config_equality = MiniTest.new_expectation(
+-- @usage option(child, "debug", true)
+Helpers.expect.config = MiniTest.new_expectation(
     "config option matches",
     function(child, field, value)
-        return Helpers.expect.global_equality(child, "_G.YourPluginName.config." .. field, value)
+        return Helpers.expect.global(child, "_G.YourPluginName.config." .. field, value)
     end,
     errorMessage
 )
 
 -- Check type equality of a config `field` against `value` in the given `child` process.
--- @usage config_type_equality(child, "debug", "boolean")
-Helpers.expect.config_type_equality = MiniTest.new_expectation(
+-- @usage config_type(child, "debug", "boolean")
+Helpers.expect.config_type = MiniTest.new_expectation(
     "config option type matches",
     function(child, field, value)
-        return Helpers.expect.global_equality(
-            child,
-            "type(_G.YourPluginName.config." .. field .. ")",
-            value
-        )
+        return Helpers.expect.global(child, "type(_G.YourPluginName.config." .. field .. ")", value)
     end,
     errorMessage
 )
 
 -- Check equality of a state `field` against `value` in the given `child` process.
--- @usage state_equality(child, "enabled", true)
-Helpers.expect.state_equality = MiniTest.new_expectation(
-    "state matches",
-    function(child, field, value)
-        return Helpers.expect.global_equality(child, "_G.YourPluginName.enabled." .. field, value)
-    end,
-    errorMessage
-)
+-- @usage state(child, "enabled", true)
+Helpers.expect.state = MiniTest.new_expectation("state matches", function(child, field, value)
+    return Helpers.expect.global(child, "_G.YourPluginName.enabled." .. field, value)
+end, errorMessage)
 
 -- Check type equality of a state `field` against `value` in the given `child` process.
--- @usage state_type_equality(child, "enabled", "boolean")
-Helpers.expect.state_type_equality = MiniTest.new_expectation(
+-- @usage state_type(child, "enabled", "boolean")
+Helpers.expect.state_type = MiniTest.new_expectation(
     "state type matches",
     function(child, field, value)
-        return Helpers.expect.global_equality(
-            child,
-            "type(_G.YourPluginName.state." .. field .. ")",
-            value
-        )
+        return Helpers.expect.global(child, "type(_G.YourPluginName.state." .. field .. ")", value)
     end,
     errorMessage
 )

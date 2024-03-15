@@ -10,6 +10,20 @@ test:
 		-c "lua require('mini.test').setup()" \
 		-c "lua MiniTest.run({ execute = { reporter = MiniTest.gen_reporter.stdout({ group_depth = 1 }) } })"
 
+# runs all the test files on the nightly version, `bob` must be installed.
+test-nightly:
+	bob use nightly
+	~/.local/share/bob/nvim-bin/nvim --version | head -n 1 && echo ''
+	~/.local/share/bob/nvim-bin/nvim --headless --noplugin -u ./scripts/minimal_init.lua \
+		-c "lua MiniTest.run({ execute = { reporter = MiniTest.gen_reporter.stdout({ group_depth = 2 }) } })"
+
+# runs all the test files on the 0.8.3 version, `bob` must be installed.
+test-0.8.3:
+	bob use 0.8.3
+	~/.local/share/bob/nvim-bin/nvim --version | head -n 1 && echo ''
+	~/.local/share/bob/nvim-bin/nvim --headless --noplugin -u ./scripts/minimal_init.lua \
+		-c "lua MiniTest.run({ execute = { reporter = MiniTest.gen_reporter.stdout({ group_depth = 2 }) } })"
+
 # installs `mini.nvim`, used for both the tests and documentation.
 deps:
 	@mkdir -p deps
@@ -27,7 +41,7 @@ documentation-ci: deps documentation
 
 # performs a lint check and fixes issue if possible, following the config in `stylua.toml`.
 lint:
-	stylua .
+	stylua . -g '*.lua' -g '!deps/'
 
 # setup
 setup:
