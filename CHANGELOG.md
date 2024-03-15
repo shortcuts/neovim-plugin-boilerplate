@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.0.0](https://github.com/shortcuts/neovim-plugin-boilerplate/compare/v1.1.0...v2.0.0) (2024-03-15)
+
+
+### ⚠ BREAKING CHANGES
+
+* improve template helpers and state manager ([#14](https://github.com/shortcuts/neovim-plugin-boilerplate/issues/14))
+
+### Features
+
+* improve template helpers and state manager ([#14](https://github.com/shortcuts/neovim-plugin-boilerplate/issues/14)) ([9cc87ad](https://github.com/shortcuts/neovim-plugin-boilerplate/commit/9cc87add9fffd7e54b9f37573ed105f2234c7ccd))
+
 ## [1.1.0](https://github.com/shortcuts/neovim-plugin-boilerplate/compare/v1.0.0...v1.1.0) (2023-03-26)
 
 
