@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.0](https://github.com/shortcuts/neovim-plugin-boilerplate/compare/v2.0.0...v2.1.0) (2024-03-16)
+
+
+### Features
+
+* **ci:** add luals checks on CI ([#16](https://github.com/shortcuts/neovim-plugin-boilerplate/issues/16)) ([2d0ecc4](https://github.com/shortcuts/neovim-plugin-boilerplate/commit/2d0ecc406f7b8a2c4fab5a7ed83967f6a35cbd5d))
+
 ## [2.0.0](https://github.com/shortcuts/neovim-plugin-boilerplate/compare/v1.1.0...v2.0.0) (2024-03-15)
 
 
