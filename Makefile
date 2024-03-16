@@ -1,10 +1,10 @@
-# we disable the `all` command because some external tool might run it automatically
 .SUFFIXES:
 
-all:
+all: documentation lint luals test
 
 # runs all the test files.
 test:
+	make deps
 	nvim --version | head -n 1 && echo ''
 	nvim --headless --noplugin -u ./scripts/minimal_init.lua \
 		-c "lua require('mini.test').setup()" \
@@ -38,6 +38,16 @@ documentation-ci: deps documentation
 # performs a lint check and fixes issue if possible, following the config in `stylua.toml`.
 lint:
 	stylua . -g '*.lua' -g '!deps/'
+
+luals-ci:
+	rm -rf .ci/lua-ls/log
+	lua-language-server --configpath .luarc.json --logpath .ci/lua-ls/log --check .
+	[ -f .ci/lua-ls/log/check.json ] && { cat .ci/lua-ls/log/check.json 2>/dev/null; exit 1; } || true
+
+luals:
+	mkdir -p .ci/lua-ls
+	curl -sL "https://github.com/LuaLS/lua-language-server/releases/download/3.7.4/lua-language-server-3.7.4-darwin-x64.tar.gz" | tar xzf - -C "${PWD}/.ci/lua-ls"
+	make luals-ci
 
 # setup
 setup:
