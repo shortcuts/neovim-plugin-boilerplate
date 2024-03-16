@@ -23,6 +23,7 @@
 - Tests with [mini.nvim `test` plugin](https://github.com/echasnovski/mini.nvim/blob/main/lua/mini/test.lua)
     - Versioned testing with [`bob`](https://github.com/MordechaiHadad/bob)
 - Linting with [Stylua](https://github.com/JohnnyMorganz/StyLua)
+- LuaLS checks on CI (inspired by [lukas-reineke/ci-template.nvim](https://github.com/lukas-reineke/ci-template.nvim))
 
 ## 📋 Installation
 
