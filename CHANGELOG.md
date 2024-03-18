@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.2.0](https://github.com/shortcuts/neovim-plugin-boilerplate/compare/v2.1.0...v2.2.0) (2024-03-18)
+
+
+### Features
+
+* **ci:** bump stylua ([#18](https://github.com/shortcuts/neovim-plugin-boilerplate/issues/18)) ([d97ea98](https://github.com/shortcuts/neovim-plugin-boilerplate/commit/d97ea98e85fb55a57e2ff9618982261e7d1a33d0))
+
 ## [2.1.0](https://github.com/shortcuts/neovim-plugin-boilerplate/compare/v2.0.0...v2.1.0) (2024-03-16)
 
 
