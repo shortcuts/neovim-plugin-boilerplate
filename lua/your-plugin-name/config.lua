@@ -21,7 +21,8 @@ local defaults = vim.deepcopy(YourPluginName.options)
 ---
 ---@private
 function YourPluginName.defaults(options)
-    YourPluginName.options = vim.deepcopy(vim.tbl_deep_extend("keep", options or {}, defaults or {}))
+    YourPluginName.options =
+        vim.deepcopy(vim.tbl_deep_extend("keep", options or {}, defaults or {}))
 
     -- let your user know that they provided a wrong value, this is reported when your plugin is executed.
     assert(
