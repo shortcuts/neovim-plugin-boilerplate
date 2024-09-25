@@ -37,7 +37,8 @@ documentation-ci: deps documentation
 
 # performs a lint check and fixes issue if possible, following the config in `stylua.toml`.
 lint:
-	stylua . -g '*.lua' -g '!deps/'
+	stylua . -g '*.lua' -g '!deps/' -g '!nightly/'
+	luacheck plugin/ lua/
 
 luals-ci:
 	rm -rf .ci/lua-ls/log
