@@ -1,5 +1,5 @@
-local log = require("no-neck-pain.util.log")
-local state = require("no-neck-pain.state")
+local log = require("your-plugin-name.util.log")
+local state = require("your-plugin-name.state")
 
 -- internal methods
 local main = {}
