@@ -19,11 +19,18 @@ function state:save()
     _G.YourPluginName.state = self
 end
 
----Whether the YourPluginName is enabled or not.
+--- Sets the global state as enabled.
 ---
 ---@private
 function state:set_enabled()
     self.enabled = true
+end
+
+--- Sets the global state as disabled.
+---
+---@private
+function state:set_disabled()
+    self.enabled = false
 end
 
 ---Whether the YourPluginName is enabled or not.
