@@ -8,30 +8,31 @@
 
 ## ⚡️ Features
 
-- interactive `setup` script
-- README.md template
+- Interactive `setup` script for an easy setup
 - Perfect for open-source:
   - CODEOWNERS file for PR auto-assign
-  - Issues and PR templates
-- CD leveraging [release-please-action](https://github.com/google-github-actions/release-please-action)
-- CI:
-  - Test running on multiple Neovim version
-  - Lint check
-  - Documentation generation check
-  - Minimal run time, ideal for free plans
-- Docs with [mini.nvim `doc` plugin](https://github.com/echasnovski/mini.nvim/blob/main/lua/mini/doc.lua)
-- Tests with [mini.nvim `test` plugin](https://github.com/echasnovski/mini.nvim/blob/main/lua/mini/test.lua)
-    - Versioned testing with [`bob`](https://github.com/MordechaiHadad/bob)
+  - Issue forms and PR templates
+  - README.md template
+- Generated Neovim documentation with [mini.nvim `doc` plugin](https://github.com/echasnovski/mini.nvim/blob/main/lua/mini/doc.lua)
+- Test runner with [mini.nvim `test` plugin](https://github.com/echasnovski/mini.nvim/blob/main/lua/mini/test.lua)
+    - Versioned testing with available with [`bob`](https://github.com/MordechaiHadad/bob)
+- Automatic releases (CD) with [release-please-action](https://github.com/google-github-actions/release-please-action)
 - Linting with [Stylua](https://github.com/JohnnyMorganz/StyLua)
-- LuaLS checks on CI (inspired by [lukas-reineke/ci-template.nvim](https://github.com/lukas-reineke/ci-template.nvim))
+- Static analysis with LuaLS (inspired by [lukas-reineke/ci-template.nvim](https://github.com/lukas-reineke/ci-template.nvim))
+- GitHub Actions Pipeline:
+  - Lint with [Stylua](https://github.com/JohnnyMorganz/StyLua)
+  - Static analysis with LuaLS
+  - Versioned testing (0.9.x, 0.10.x and Nightly by default)
+  - Generated documentation analysis
+  - Minimal run time with caching capabilities, ideal for free-plans
 
 ## 📋 Installation
 
 > **Note**:
-> This section is only required if you wish to use the linter provided by the template.
+> This section is only required if you wish to use the tooling proposed by this template, you can skip this step if you want.
 
-- [Install Stylua linter](https://github.com/JohnnyMorganz/StyLua#installation)
-- [Install `bob` neovim version manager](https://github.com/MordechaiHadad/bob)
+- [Install Stylua for the linting solution](https://github.com/JohnnyMorganz/StyLua#installation)
+- [Install `bob` neovim version manager for the versioned testing solution](https://github.com/MordechaiHadad/bob)
 
 ## ☄ Getting started
 
@@ -82,6 +83,7 @@ rm -rf doc
 mv plugin/your-plugin-name.lua plugin/my-awesome-plugin.lua
 mv lua/your-plugin-name lua/my-awesome-plugin
 mv README_TEMPLATE.md README.md 
+mv .github/ISSUE_TEMPLATE/Bug_report_template.yml .github/ISSUE_TEMPLATE/Bug_report.yml
 
 ```
 
