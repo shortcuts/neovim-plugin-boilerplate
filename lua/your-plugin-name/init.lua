@@ -1,5 +1,4 @@
 local main = require("your-plugin-name.main")
-local api = require("your-plugin-name.util.api")
 local config = require("your-plugin-name.config")
 
 local YourPluginName = {}
@@ -10,7 +9,7 @@ function YourPluginName.toggle()
         _G.YourPluginName.config = config.options
     end
 
-    api.debounce("public_api_toggle", main.toggle)
+    main.toggle("public_api_toggle")
 end
 
 --- Initializes the plugin, sets event listeners and internal state.
@@ -19,12 +18,12 @@ function YourPluginName.enable(scope)
         _G.YourPluginName.config = config.options
     end
 
-    api.debounce(scope or "public_api_enable", main.enable, 10)
+    main.toggle(scope or "public_api_enable")
 end
 
 --- Disables the plugin, clear highlight groups and autocmds, closes side buffers and resets the internal state.
 function YourPluginName.disable()
-    api.debounce("public_api_disable", main.disable)
+    main.toggle("public_api_disable")
 end
 
 -- setup YourPluginName options and merge them with user provided ones.
