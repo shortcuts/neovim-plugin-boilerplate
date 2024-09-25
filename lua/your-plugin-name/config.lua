@@ -41,7 +41,7 @@ end
 function YourPluginName.setup(options)
     YourPluginName.options = YourPluginName.defaults(options or {})
 
-    log.warnDeprecation(YourPluginName.options)
+    log.warn_deprecation(YourPluginName.options)
 
     return YourPluginName.options
 end
