@@ -6,7 +6,7 @@ Toggle the plugin by calling the `enable`/`disable` methods respectively.
 
 ------------------------------------------------------------------------------
                                                        *YourPluginName.enable()*
-                           `YourPluginName.enable`()
+                        `YourPluginName.enable`({scope})
 Initializes the plugin, sets event listeners and internal state.
 
 ------------------------------------------------------------------------------
@@ -22,14 +22,13 @@ Disables the plugin, clear highlight groups and autocmds, closes side buffers an
 Your plugin configuration with its default values.
 
 Default values:
->
+>lua
   YourPluginName.options = {
       -- Prints useful logs about what event are triggered, and reasons actions are executed.
       debug = false,
   }
 
 <
-
 ------------------------------------------------------------------------------
                                                         *YourPluginName.setup()*
                        `YourPluginName.setup`({options})
