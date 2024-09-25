@@ -1,9 +1,10 @@
-local D = require("your-plugin-name.util.debug")
+local log = require("your-plugin-name.util.log")
 
 local YourPluginName = {}
 
---- Your plugin configuration with its default values.
+--- YourPluginName configuration with its default values.
 ---
+---@type table
 --- Default values:
 ---@eval return MiniDoc.afterlines_to_code(MiniDoc.current.eval_section)
 YourPluginName.options = {
@@ -20,11 +21,7 @@ local defaults = vim.deepcopy(YourPluginName.options)
 ---
 ---@private
 function YourPluginName.defaults(options)
-    local tde = function(t1, t2)
-        return vim.deepcopy(vim.tbl_deep_extend("keep", t1 or {}, t2 or {}))
-    end
-
-    YourPluginName.options = tde(options, defaults)
+    YourPluginName.options = vim.deepcopy(vim.tbl_deep_extend("keep", options or {}, defaults or {}))
 
     -- let your user know that they provided a wrong value, this is reported when your plugin is executed.
     assert(
@@ -43,10 +40,7 @@ end
 function YourPluginName.setup(options)
     YourPluginName.options = YourPluginName.defaults(options or {})
 
-    -- Useful for later checks that requires nvim 0.9 features at runtime.
-    YourPluginName.options.hasNvim9 = vim.fn.has("nvim-0.9") == 1
-
-    D.warnDeprecation(YourPluginName.options)
+    log.warnDeprecation(YourPluginName.options)
 
     return YourPluginName.options
 end
