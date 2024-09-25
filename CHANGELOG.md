@@ -1,5 +1,16 @@
 # Changelog
 
+## [3.0.0](https://github.com/shortcuts/neovim-plugin-boilerplate/compare/v2.2.0...v3.0.0) (2024-09-25)
+
+
+### ⚠ BREAKING CHANGES
+
+* renew template ([#22](https://github.com/shortcuts/neovim-plugin-boilerplate/issues/22))
+
+### Features
+
+* renew template ([#22](https://github.com/shortcuts/neovim-plugin-boilerplate/issues/22)) ([ca72698](https://github.com/shortcuts/neovim-plugin-boilerplate/commit/ca726988e6711508ada1ee0e554824827d00e3be))
+
 ## [2.2.0](https://github.com/shortcuts/neovim-plugin-boilerplate/compare/v2.1.0...v2.2.0) (2024-03-18)
 
 
