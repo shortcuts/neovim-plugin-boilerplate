@@ -1,55 +1,59 @@
-local S = require("your-plugin-name.state")
-local D = require("your-plugin-name.util.debug")
+local log = require("no-neck-pain.util.log")
+local state = require("no-neck-pain.state")
 
 -- internal methods
-local YourPluginName = {}
+local main = {}
 
 -- Toggle the plugin by calling the `enable`/`disable` methods respectively.
 --
---- @param scope string: internal identifier for logging purposes.
+---@param scope string: internal identifier for logging purposes.
 ---@private
-function YourPluginName.toggle(scope)
-    if S.getEnabled(S) then
-        return YourPluginName.disable(scope)
+function main.toggle(scope)
+    if state.get_enabled(state) then
+        log.debug(scope, "your-plugin-name is now disabled!")
+
+        return main.disable(scope)
     end
 
-    return YourPluginName.enable(scope)
+    log.debug(scope, "your-plugin-name is now enabled!")
+
+    main.enable(scope)
 end
 
 --- Initializes the plugin, sets event listeners and internal state.
 ---
 --- @param scope string: internal identifier for logging purposes.
 ---@private
-function YourPluginName.enable(scope)
-    if S.getEnabled(S) then
-        D.log(scope, "Plugin is already enabled.")
+function main.enable(scope)
+    if state.get_enabled(state) then
+        log.debug(scope, "your-plugin-name is already enabled")
 
         return
     end
 
-    -- sets the plugin as `enabled`
-    S.setEnabled(S)
+    state.set_enabled(state)
 
     -- saves the state globally to `_G.YourPluginName.state`
-    S.save(S)
+    state.save(state)
 end
+
+
 
 --- Disables the plugin for the given tab, clear highlight groups and autocmds, closes side buffers and resets the internal state.
 ---
 --- @param scope string: internal identifier for logging purposes.
 ---@private
-function YourPluginName.disable(scope)
-    if not S.getEnabled(S) then
-        D.log(scope, "Plugin is already disabled.")
+function main.disable(scope)
+    if not state.get_enabled(state) then
+        log.debug(scope, "your-plugin-name is already disabled")
 
         return
     end
 
-    -- resets the state to its initial value
-    S.init(S)
+    state.set_disabled(state)
 
     -- saves the state globally to `_G.YourPluginName.state`
-    S.save(S)
+    state.save(state)
 end
 
-return YourPluginName
+return main
