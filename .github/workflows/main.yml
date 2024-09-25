@@ -7,7 +7,7 @@ on:
     types: [opened, synchronize]
 
 env:
-  LUA_LS_VERSION: 3.10.6
+  LUA_LS_VERSION: 3.7.4
 
 concurrency:
   group: github.head_ref
