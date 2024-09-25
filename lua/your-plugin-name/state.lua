@@ -2,7 +2,6 @@ local log = require("your-plugin-name.util.log")
 
 local state = { enabled = false }
 
-
 ---Sets the state to its original value.
 ---
 ---@private

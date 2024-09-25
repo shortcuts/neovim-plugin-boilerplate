@@ -37,8 +37,6 @@ function main.enable(scope)
     state.save(state)
 end
 
-
-
 --- Disables the plugin for the given tab, clear highlight groups and autocmds, closes side buffers and resets the internal state.
 ---
 --- @param scope string: internal identifier for logging purposes.
