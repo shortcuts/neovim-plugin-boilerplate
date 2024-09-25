@@ -113,6 +113,12 @@ You can now start writing your plugin, make sure the following commands work:
 
 Enjoy!
 
+## ☄ Who uses this template?
+
+- [no-neck-pain.nvim](https://github.com/shortcuts/no-neck-pain.nvim): ☕ Dead simple yet super extensible plugin to center the currently focused buffer to the middle of the screen.
+- [wf.nvim](https://github.com/Cassin01/wf.nvim): A modern which-key for neovim
+- [better-ts-errors.nvim](https://github.com/OlegGulevskyy/better-ts-errors.nvim)
+
 ## ⌨ Contributing
 
 PRs and issues are always welcome. Make sure to provide as much context as possible when opening one.
