@@ -38,7 +38,7 @@ jobs:
         uses: rhysd/action-setup-vim@v1
         with:
           neovim: true
-          version: v0.10.1
+          version: v0.11.0
 
       - name: generate documentation
         run: make documentation-ci
@@ -54,18 +54,12 @@ jobs:
     timeout-minutes: 1
     strategy:
       matrix:
-        neovim_version: ['v0.9.5', 'v0.10.1']
+        neovim_version: ['v0.9.5', 'v0.10.1', 'v0.11.0']
 
     steps:
       - uses: actions/checkout@v4
 
       - run: date +%F > todays-date
-
-      - name: restore cache for today's nightly.
-        uses: actions/cache@v4
-        with:
-          path: _neovim
-          key: ${{ runner.os }}-x64-${{ hashFiles('todays-date') }}
 
       - name: restore luals cache
         uses: actions/cache@v4
