@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.0.1](https://github.com/shortcuts/neovim-plugin-boilerplate/compare/v3.0.0...v3.0.1) (2025-08-27)
+
+
+### Bug Fixes
+
+* remove 0.7 nvim support ([99911e6](https://github.com/shortcuts/neovim-plugin-boilerplate/commit/99911e6b5778dc8dc659bca590d17afed937dc3c))
+
 ## [3.0.0](https://github.com/shortcuts/neovim-plugin-boilerplate/compare/v2.2.0...v3.0.0) (2024-09-25)
 
 
