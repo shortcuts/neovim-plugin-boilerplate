@@ -44,7 +44,7 @@ fi
 
 echo -e "Username:    \033[1;32m$USERNAME\033[0m\nRepository:  \033[1;32m$REPOSITORY_NAME\033[0m\nPlugin:      \033[1;32m$PLUGIN_NAME\033[0m\n\n\tRenaming placeholder files..."
 
-rm -rf doc
+rm -rf doc CHANGELOG.md
 mv plugin/your-plugin-name.lua plugin/$PLUGIN_NAME.lua
 mv lua/your-plugin-name lua/$PLUGIN_NAME
 mv README_TEMPLATE.md README.md
