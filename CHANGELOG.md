@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.0.2](https://github.com/shortcuts/neovim-plugin-boilerplate/compare/v3.0.1...v3.0.2) (2025-08-31)
+
+
+### Bug Fixes
+
+* remove changelog on setup ([2923468](https://github.com/shortcuts/neovim-plugin-boilerplate/commit/2923468a74fcab00e605a6588cfca2bd229808b2))
+
 ## [3.0.1](https://github.com/shortcuts/neovim-plugin-boilerplate/compare/v3.0.0...v3.0.1) (2025-08-27)
 
 
